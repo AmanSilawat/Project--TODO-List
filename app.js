@@ -15,36 +15,41 @@ function addTodo(event) {
     // Prevent form Submiting
     event.preventDefault();
 
-    //Todo Div
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
+    if (todoInptut.value != '') {
+        //Todo Div
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
 
-    //Create li
-    const newTodo = document.createElement('li');
-    newTodo.innerText = todoInptut.value;
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
+        //Create li
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todoInptut.value;
+        newTodo.classList.add('todo-item');
+        todoDiv.appendChild(newTodo);
 
-    // Save to localStorage
-    saveLocalTodos(todoInptut.value);
+        // Save to localStorage
+        saveLocalTodos(todoInptut.value);
 
-    //Check mark button
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add('complete-btn');
-    todoDiv.appendChild(completedButton);
+        //Check mark button
+        const completedButton = document.createElement('button');
+        completedButton.innerHTML = '<i class="fas fa-check"></i>';
+        completedButton.classList.add('complete-btn');
+        todoDiv.appendChild(completedButton);
 
-    //Check trash button
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-    trashButton.classList.add('trash-btn');
-    todoDiv.appendChild(trashButton);
+        //Check trash button
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+        trashButton.classList.add('trash-btn');
+        todoDiv.appendChild(trashButton);
 
-    //Append to list
-    todoList.appendChild(todoDiv);
+        //Append to list
+        todoList.appendChild(todoDiv);
 
-    // Clear todo input
-    todoInptut.value = '';
+        // Clear todo input
+        todoInptut.value = '';
+        todoInptut.focus();
+    } else {
+        todoInptut.focus();
+    }
 }
 
 function deleteCheck(e) {
