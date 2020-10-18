@@ -68,15 +68,24 @@ function filterTodo(e) {
     const todos = todoList.childNodes;
     todos.forEach(function (todo) {
         switch (e.target.value) {
-            case "all":
+            case 'all':
+                console.log(e.target.value);
                 todo.style.display = 'flex';
                 break;
 
-            case "completed":
-                if (todo.classList.contains("completed")) {
+            case 'completed':
+                if (todo.classList.contains('completed')) {
                     todo.style.display = 'flex';
                 } else {
-                    todo.style.display = 'node';
+                    todo.style.display = 'none';
+                }
+                break;
+
+            case 'uncompleted':
+                if (!todo.classList.contains('completed')) {
+                    todo.style.display = 'flex';
+                } else {
+                    todo.style.display = 'none';
                 }
                 break;
 

@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <title>Todo List</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Todo List</title>
+    </head>
+    <body>
+        <header>
+            <h1>Todo List</h1>
+        </header>
 
-    <header>
-        <h1>Ed's Todo List</h1>
-    </header>
+        <form>
+            <input type="text" class="todo-input" />
+            <button class="todo-button" type="submit">
+                <i class="fas fa-plus-square"></i>
+                <!-- <i class="fas fa-adjust"></i> -->
+            </button>
+            <div class="select">
+                <select name="todos" class="filter-todo">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+        </form>
 
-    <form>
-        <input type="text" class="todo-input">
-        <button class="todo-button" type="submit">
-            <i class="fas fa-plus-square"></i>
-            <!-- <i class="fas fa-adjust"></i> -->
-        </button>
-        <div class="select">
-            <select name="todos" class="filter-todo">
-                <option value="all">All</option>
-                <option value="comleted">Comleted</option>
-                <option value="uncomleted">Uncomleted</option>
-            </select>
+        <div class="todo-container">
+            <ul class="todo-list"></ul>
         </div>
-    </form>
 
-    <div class="todo-container">
-        <ul class="todo-list"></ul>
-    </div>
-
-
-
-    <script src="./app.js"></script>
-</body>
+        <script src="./app.js"></script>
+    </body>
 </html>
