@@ -1,8 +1,8 @@
 //Selectors
-const todoInptut = document.querySelector('.todo-input');
-const todoButton = document.querySelector('.todo-button');
-const todoList = document.querySelector('.todo-list');
-const filterOption = document.querySelector('.filter-todo');
+const todoInptut = document.getElementById('todo-input');
+const todoButton = document.getElementById('todo-button');
+const todoList = document.getElementById('todo-list');
+const filterOption = document.getElementById('filter-todo');
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', getTodos);
@@ -14,20 +14,21 @@ filterOption.addEventListener('click', filterTodo);
 function addTodo(event) {
     // Prevent form Submiting
     event.preventDefault();
+    let inputVal = todoInptut.value.trim();
 
-    if (todoInptut.value != '') {
+    if (inputVal != '') {
         //Todo Div
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
 
         //Create li
         const newTodo = document.createElement('li');
-        newTodo.innerText = todoInptut.value;
+        newTodo.innerText = inputVal;
         newTodo.classList.add('todo-item');
         todoDiv.appendChild(newTodo);
 
         // Save to localStorage
-        saveLocalTodos(todoInptut.value);
+        saveLocalTodos(inputVal);
 
         //Check mark button
         const completedButton = document.createElement('button');
@@ -48,6 +49,7 @@ function addTodo(event) {
         todoInptut.value = '';
         todoInptut.focus();
     } else {
+        todoInptut.value = '';
         todoInptut.focus();
     }
 }
@@ -56,7 +58,7 @@ function deleteCheck(e) {
     const item = e.target;
 
     //Delete todo
-    if (item.classList[0] === 'trash-btn') {
+    if (item.classList.contains('trash-btn')) {
         const todo = item.parentElement;
 
         //Animation
@@ -68,7 +70,7 @@ function deleteCheck(e) {
     }
 
     //Check mark
-    if (item.classList[0] === 'complete-btn') {
+    if (item.classList.contains('complete-btn')) {
         const todo = item.parentElement;
         todo.classList.toggle('completed');
     }
@@ -163,8 +165,8 @@ function removeLocalTodos(todo) {
     } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
-    const todoIndex = todo.children[0].innerText;
-    todos.splice(todos.indexOf(todoIndex), 1);
+    const todoTxt = todo.children[0].innerText;
+    todos.splice(todos.indexOf(todoTxt), 1);
 
     localStorage.setItem('todos', JSON.stringify(todos));
 }

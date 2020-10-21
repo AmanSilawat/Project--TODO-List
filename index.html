@@ -20,13 +20,13 @@
         </header>
 
         <form>
-            <input type="text" class="todo-input" />
-            <button class="todo-button" type="submit">
+            <input type="text" id="todo-input" />
+            <button id="todo-button" type="submit">
                 <i class="fas fa-plus-square"></i>
                 <!-- <i class="fas fa-adjust"></i> -->
             </button>
             <div class="select">
-                <select name="todos" class="filter-todo">
+                <select name="todos" id="filter-todo">
                     <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>
@@ -35,7 +35,7 @@
         </form>
 
         <div class="todo-container">
-            <ul class="todo-list"></ul>
+            <ul id="todo-list"></ul>
         </div>
 
         <script src="./app.js"></script>
